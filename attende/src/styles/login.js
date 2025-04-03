@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     backgroundColor: colors.white,
     padding: 15,
+    justifyContent: "center",
   },
   modalContact: {
     display: "flex",

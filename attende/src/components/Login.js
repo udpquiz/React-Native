@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   Alert,
+  Platform,
 } from "react-native";
 import ForgotPasswordModal from "./ForgotPasswordModel";
 import { db } from "../../config/firebase";
@@ -67,9 +68,15 @@ const Login = ({ navigation, role }) => {
   };
 
   return (
-    <KeyboardAvoidingView behavior="height" style={{ flex: 1 }}>
-      <ScrollView style={styles.container}>
-        <SafeAreaView>
+    <KeyboardAvoidingView 
+      behavior={Platform.OS === "android" ? "padding" : "height"} 
+      style={{ flex: 1 }}
+    >
+      <ScrollView 
+        style={styles.container}
+        contentContainerStyle={{ flexGrow: 1 }}
+      >
+        <SafeAreaView style={{ flex: 1 }}>
           <View style={styles.Box}>
             {role == "parent" && (
               <Image
